@@ -48,8 +48,10 @@ class PointInterpolator {
   }
 
   void buildPointsMap() {
+    if(points.isEmpty) return;
+    
     var myDistanceFunc = distanceFunc ?? haversine;
-
+    
     if(isReversed) {
       points = []..addAll(originalPoints.reversed.toList());
     } else {
