@@ -220,9 +220,10 @@ originalPoints: widget.originalPoints, distanceFunc: null, isReversed: widget.is
 
     animation = Tween<double>( begin: widget.begin, end: interpolator.totalDistance ).animate(controller)
       ..addListener(() {
-
-        InterpolatedResult interpolatedResult = interpolator.interpolate(controller.value,
-            animation.value, widget.interpolateBetweenPoints); /// not sure we need a tween at this point anymore, controller only ?
+        if(interpolator.points.isNotEmpty) {
+           InterpolatedResult interpolatedResult = interpolator.interpolate(controller.value,
+            animation.value, widget.interpolateBetweenPoints); /// not sure we need a tween at this point anymore, controller only ? 
+        }
 
         if(interpolatedResult.point != null)
           widget.duringCallback?.call(interpolatedResult.builtPoints,
