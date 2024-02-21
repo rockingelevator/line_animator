@@ -129,7 +129,7 @@ class PointInterpolator {
       }
     }
 
-    if( thisPoint == null ) {
+    if( thisPoint == null && points.length > lastPointIndex - 1) {
       thisPoint = LatLng(points[lastPointIndex - 1].latitude,
           points[lastPointIndex - 1].longitude);
     }
